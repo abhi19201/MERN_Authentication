@@ -1,0 +1,30 @@
+.signup{
+    background-color: white;
+    padding: 2rem;
+    margin: 3rem;
+    border-radius: 0.5rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    font-family: cursive;
+    margin-top: 15vh;
+}
+
+.signupForm{
+    display: grid;
+    margin: 2rem;
+    grid-template-areas:
+        "fName lName"
+        "gender dob"
+        "mail mail"
+        "pass pass"
+        "confirmPass confirmPass"
+        'button button';
+    grid-gap: 1rem;
+}
+
+.signupForm > button{
+    height: 3rem;
+    font-size: large;
+    font-weight: bold;
+}

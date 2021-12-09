@@ -1,0 +1,15 @@
+* {
+    margin: 0;
+    scroll-behavior: smooth;
+}
+
+html, body, #root, #root>div {
+    height: 100%;
+    background: #b9d2e1;
+    margin-bottom: 3rem;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+}

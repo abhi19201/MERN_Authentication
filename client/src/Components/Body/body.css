@@ -1,0 +1,13 @@
+.body{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: 100%;
+    margin-top: 15vh;
+}
+
+.createdby{
+    font-size: 1.4rem;
+    font-family: monospace;
+    padding-left: 1rem;
+}
