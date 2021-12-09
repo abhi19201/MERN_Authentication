@@ -52,6 +52,7 @@ app.use((req, res, next) => {
 const User = require("./server/routes/authRouter");
 app.use(User);
 
+
 app.use(express.static(path.join(__dirname, "client", "build")));
 
 app.get("*", (req, res) => {
