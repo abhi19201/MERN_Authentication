@@ -18,7 +18,7 @@ export const authCheck = () =>
         try {
             dispatch({ type: AUTH_CHECK });
 
-            const url = "/";
+            const url = "/auth";
             const response = await Api.get(url);
             
             if (response.status === 200) {
