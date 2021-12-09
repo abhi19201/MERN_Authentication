@@ -9,7 +9,7 @@ import "./listCreater.css";
 
 export default function ListCreater() {
     const dispatch = useDispatch();
-    const { message, error } = useSelector((state) => state.list);
+    const { error } = useSelector((state) => state.list);
     const { email, nickName } = useSelector((state) => state.auth);
 
     const [input, setInput] = useState('');
@@ -18,6 +18,9 @@ export default function ListCreater() {
     const addHandler = () => {
         
         dispatch(addItem(email, input))
+            .then(() => {
+                setInput("");
+            })
             .catch(() => {
                 console.log(error);
             });

@@ -8,6 +8,7 @@ import {
     AUTH_LOGOUT_REQUEST_FAILURE,
 } from "../Constants/constants";
 import Axios from "axios";
+import { getAllItems, getAllUsers } from "./listActions";
 
 const Api = Axios.create({
 	withCredentials: true
@@ -22,6 +23,11 @@ export const authCheck = () =>
             const response = await Api.get(url);
             
             if (response.status === 200) {
+                if (response.data.email === "admin") {
+                    getAllUsers(response.data.email);
+                } else {
+                    dispatch(getAllItems(response.data.email));
+                }
                 dispatch({
                     type: AUTH_REQUEST_SUCCESS,
                     payload: response.data,
@@ -50,10 +56,21 @@ export const loginReq =
 
             const response = await Api.post(url, userInput);
 
+            if (response.data.email !== "admin") {
+                dispatch(getAllItems(response.data.email));
+            }
+            
             dispatch({
                 type: AUTH_REQUEST_SUCCESS,
                 payload: response.data,
             });
+
+            // if (response.data.email === "admin") {
+            //     dispatch(getAllUsers(response.data.email));
+            // } else {
+            //     dispatch(getAllItems(response.data.email));
+            // }
+            
         } catch (error) {
             dispatch({
                 type: AUTH_REQUEST_FAILURE,
@@ -72,6 +89,7 @@ export const signupReq = (signupCreds={}) =>
             const url = "/signup";
             
             const response = await Api.post(url, signupCreds);
+
             dispatch({
                 type: AUTH_REQUEST_SUCCESS,
                 payload: response.data,
@@ -93,7 +111,7 @@ export const logoutReq = (email="") =>
         try {
             dispatch({ type: AUTH_LOGOUT_REQUEST });
 
-            const url = "http://localhost:8000/logout";
+            const url = "/logout";
             const response = await Api.post(url);
 
             dispatch({

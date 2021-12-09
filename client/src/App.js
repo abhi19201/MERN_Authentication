@@ -11,7 +11,7 @@ import "./app.css";
 
 function App() {
     const dispatch = useDispatch();
-    const { loginStatus } = useSelector((state) => state.auth);
+    const { loginStatus} = useSelector((state) => state.auth);
 
     useEffect(() => {
         dispatch(authCheck());

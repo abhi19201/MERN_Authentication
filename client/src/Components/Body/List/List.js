@@ -8,16 +8,14 @@ import "./list.css";
 
 export default function List(props) {
     const dispatch = useDispatch();
-    const { loading, itemsList, type } = useSelector(
+    const { loading, itemsList } = useSelector(
         (state) => state.list
     );
     const { email } = useSelector((state) => state.auth);
 
     useEffect(() => {
-        if (type === "") {
             dispatch(getAllItems(email));
-        }
-    }, [dispatch, email, type]);
+    }, [dispatch, email]);
 
     return (
         <div className='list'>

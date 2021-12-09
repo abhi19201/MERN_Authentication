@@ -8,13 +8,15 @@ const path = require("path");
 
 const app = express();
 
-app.use(cors({ credentials: true}));
+//Config
+dotenv.config();
+
+app.use(cors({ credentials: true, origin: process.env.ORIGIN}));
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 app.use(morgan("tiny"));
 
-//Config
-dotenv.config();
+
 
 //database
 const mongoDb = require("./server/database/mongoConnection");

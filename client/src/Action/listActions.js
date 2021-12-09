@@ -37,16 +37,12 @@ export const getAllItems =
     async (dispatch) => {
         try {
             dispatch({ type: ITEM_GET_REQUEST });
-
-            const url = "/list";
-
+            const url = "/list/get";
             const response = await Axios.get(url, { params: { email } });
-
             dispatch({
                 type: ITEM_REQUEST_SUCCESS,
                 payload: response,
             });
-            
         } catch (error) {
             dispatch({
                 type: ITEM_REQUEST_FAILURE,
@@ -103,10 +99,11 @@ export const deleteItem =
         }
     };
 
+    
 export const getAllUsers =
     async (email = "") =>{
         try {
-            const url = "/list";
+            const url = "/list/get";
             const response = await Axios.get(url, { params: { email } });
 
             return response;
