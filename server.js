@@ -17,7 +17,7 @@ app.use(morgan("tiny"));
 dotenv.config();
 
 //database
-const mongoDb = require("./Server/database/mongoConnection");
+const mongoDb = require("./server/database/mongoConnection");
 mongoDb.connectMongo();
 
 //session
