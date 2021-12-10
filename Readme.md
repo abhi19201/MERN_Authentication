@@ -1,4 +1,4 @@
-# Greendeck : Time Series Visualisation
+# MERN Stack Authentication App
 
 ![Mongo](https://img.shields.io/badge/DB-MongoDB-yellow)
 ![React](https://aleen42.github.io/badges/src/react.svg)
